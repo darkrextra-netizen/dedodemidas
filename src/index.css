@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dedo de Midas Theme - Golden, Black, Dark Gray */
+    --background: 0 0% 0%;
+    --foreground: 51 100% 50%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 51 100% 50%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 51 100% 50%;
+
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 51 100% 50%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 51 100% 50%;
+
+    --radius: 0.75rem;
+    
+    /* Custom Midas Colors */
+    --gold: 51 100% 50%;
+    --gold-dark: 45 100% 45%;
+    --gold-light: 54 100% 70%;
+    --dark-bg: 0 0% 10%;
+    --darker-bg: 0 0% 5%;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--dark-bg)) 100%);
+    
+    /* Shadows */
+    --shadow-gold: 0 10px 30px -10px hsl(var(--gold) / 0.3);
+    --shadow-intense: 0 0 40px hsl(var(--gold) / 0.4);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 51 100% 50%;
+    --sidebar-primary: 51 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 51 100% 50%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 51 100% 50%;
+  }
+
+  .dark {
+    /* Dark mode maintains same Midas theme */
+    --background: 0 0% 0%;
+    --foreground: 51 100% 50%;
+    --card: 0 0% 10%;
+    --card-foreground: 51 100% 50%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 51 100% 50%;
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 51 100% 50%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 51 100% 50%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 51 100% 50%;
+    --sidebar-primary: 51 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 51 100% 50%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 51 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--dark-bg)) 100%);
+    min-height: 100vh;
+  }
+  
+  .font-display {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-intense {
+    box-shadow: var(--shadow-intense);
+  }
+  
+  .glow {
+    text-shadow: 0 0 8px hsl(var(--gold) / 0.4), 0 0 12px hsl(var(--gold) / 0.2);
+    animation: glow-pulse 3s infinite alternate ease-in-out;
+  }
+  
+  @keyframes glow-pulse {
+    from { 
+      text-shadow: 0 0 6px hsl(var(--gold) / 0.3), 0 0 10px hsl(var(--gold) / 0.15);
+    }
+    to { 
+      text-shadow: 0 0 10px hsl(var(--gold) / 0.5), 0 0 16px hsl(var(--gold) / 0.25), 0 0 20px hsl(var(--gold) / 0.1);
+    }
+  }
+  
+  .animate-pulse-sequence {
+    animation: pulse-subtle 20s infinite ease-in-out;
+  }
+
+  @keyframes pulse-subtle {
+    0%, 95%, 100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    2.5% {
+      transform: scale(1.005);
+      opacity: 1;
+    }
+  }
+}
